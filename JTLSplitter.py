@@ -1,4 +1,5 @@
 import argparse
+import os
 
 # parse the arguments
 parser = argparse.ArgumentParser()
@@ -20,6 +21,7 @@ if (args.verbose):
 
 print("Splitting: %s" % (args.input))
 
+output_filename, output_extension = os.path.splitext(args.output)
 header = None
 filecounter = 0
 
@@ -37,8 +39,8 @@ with open(args.input) as fp:
             except:
                 pass
 
-            print("Output to %s%d  made %d" % (args.output, filecounter, cnt))
-            output = open("%s%d" % (args.output, filecounter), "w+")
+            print("Output to %s%d%s  made %d" % (args.output, filecounter, output_extension, cnt))
+            output = open("%s%d%s" % (output_filename, filecounter, output_extension), "w+")
             output.write(header)
 
         output.write(line)
