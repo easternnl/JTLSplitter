@@ -39,8 +39,8 @@ with open(args.input) as fp:
             except:
                 pass
 
-            print("Output to %s%d%s  made %d" % (args.output, filecounter, output_extension, cnt))
-            output = open("%s%d%s" % (output_filename, filecounter, output_extension), "w+")
+            print("Output to %s-%d%s  made %d" % (args.output, filecounter, output_extension, cnt))
+            output = open("%s-%d%s" % (output_filename, filecounter, output_extension), "w+")
             output.write(header)
 
         output.write(line)
